@@ -6,11 +6,13 @@
 #include <vector>
 
 class Graph {
+private:
+    int V;
+    std::vector<std::vector<int>> adjMatrix;
 public:
     Graph(int V );
     void addEdge(int u, int v, int weight);
-    int V;
-    std::vector<std::vector<int>> adjMatrix;
+    void printMatrix();
 };
 
 #endif
