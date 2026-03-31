@@ -1,6 +1,7 @@
 //All procedures including main
 #include "prim.h"
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -62,12 +63,24 @@ void Graph::primMST() {
 }
 
 int main() {
-    int vectors = 3;
-    Graph g(vectors);
+    std::ifstream file("input.txt");
 
-    g.addEdge(0, 1, 4);
-    g.addEdge(1, 2, 5);
-    g.addEdge(0, 2, 6);
+    if (!file) {
+        std::cout << "Error opening file!" << std::endl;
+        return 1;
+    }
+
+    int V, E;
+    file >> V >> E;
+
+    Graph g(V);
+
+    int u, v, w;
+
+    for (int i = 0; i < E; i++) {
+        file >> u >> v >> w;
+        g.addEdge(u, v, w);
+    }
 
     g.primMST();
 
