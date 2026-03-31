@@ -13,6 +13,7 @@ public:
     Graph(int V );
     void addEdge(int u, int v, int weight);
     void printMatrix();
+    void primMST();
 };
 
 #endif
